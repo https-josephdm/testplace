@@ -483,15 +483,15 @@ footer { border-top: 1px solid var(--line); background: #050507; }
       </div>
     </section>
 
-    <!-- Hero Image Slider (yacht9, view1, car6, cleaner1, security2, car7) -->
+    <!-- Hero Image Slider -->
     <section class="wrap">
       <div class="hero-slideshow reveal" data-slideshow>
-        <img src="yacht9.jpeg" alt="Yacht 9" class="active-slide">
-        <img src="view1.jpeg" alt="View 1">
-        <img src="car6.jpeg" alt="Car 6">
-        <img src="cleaner1.jpeg" alt="Cleaner 1">
-        <img src="security2.jpeg" alt="Security 2">
-        <img src="car7.jpeg" alt="Car 7">
+        <img src="yacht9.jpeg" alt="Yacht 9" class="active-slide" onerror="this.onerror=null; this.src='yacht9.jpg';">
+        <img src="view1.jpeg" alt="View 1" onerror="this.onerror=null; this.src='view1.jpg';">
+        <img src="car6.jpeg" alt="Car 6" onerror="this.onerror=null; this.src='car6.jpg';">
+        <img src="cleaner1.jpeg" alt="Cleaner 1" onerror="this.onerror=null; this.src='cleaner1.jpg';">
+        <img src="security2.jpeg" alt="Security 2" onerror="this.onerror=null; this.src='security2.jpg';">
+        <img src="car7.jpeg" alt="Car 7" onerror="this.onerror=null; this.src='car7.jpg';">
       </div>
     </section>
 
@@ -505,39 +505,36 @@ footer { border-top: 1px solid var(--line); background: #050507; }
 
     <!-- 3 Cards with Image Sliders -->
     <section class="wrap cards3">
-      <!-- Card 1: house3, house1, house2, cleaner4 -->
       <a class="card glass reveal delay-1" href="#services" style="text-decoration:none">
         <div class="card-slideshow" data-slideshow>
-          <img src="house3.jpeg" alt="House 3" class="active-slide">
-          <img src="house1.jpeg" alt="House 1">
-          <img src="house2.jpeg" alt="House 2">
-          <img src="cleaner4.jpeg" alt="Cleaner 4">
+          <img src="house3.jpeg" alt="House 3" class="active-slide" onerror="this.onerror=null; this.src='house3.jpg';">
+          <img src="house1.jpeg" alt="House 1" onerror="this.onerror=null; this.src='house1.jpg';">
+          <img src="house2.jpeg" alt="House 2" onerror="this.onerror=null; this.src='house2.jpg';">
+          <img src="cleaner4.jpeg" alt="Cleaner 4" onerror="this.onerror=null; this.src='cleaner4.jpg';">
         </div>
         <div class="ico"><svg viewBox="0 0 24 24"><use href="#i-house"/></svg></div>
         <h3 data-i18n="p1_h">Your property</h3>
         <p data-i18n="p1_t">Technical care and complete management of your home, from pool and spa to heating and air conditioning.</p>
       </a>
 
-      <!-- Card 2: car8, yacht6, car5, yacht5 -->
       <a class="card glass reveal delay-2" href="#services" style="text-decoration:none">
         <div class="card-slideshow" data-slideshow>
-          <img src="car8.jpeg" alt="Car 8" class="active-slide">
-          <img src="yacht6.jpeg" alt="Yacht 6">
-          <img src="car5.jpeg" alt="Car 5">
-          <img src="yacht5.jpeg" alt="Yacht 5">
+          <img src="car8.jpeg" alt="Car 8" class="active-slide" onerror="this.onerror=null; this.src='car8.jpg';">
+          <img src="yacht6.jpeg" alt="Yacht 6" onerror="this.onerror=null; this.src='yacht6.jpg';">
+          <img src="car5.jpeg" alt="Car 5" onerror="this.onerror=null; this.src='car5.jpg';">
+          <img src="yacht5.jpeg" alt="Yacht 5" onerror="this.onerror=null; this.src='yacht5.jpg';">
         </div>
         <div class="ico"><svg viewBox="0 0 24 24"><use href="#i-boat"/></svg></div>
         <h3 data-i18n="p2_h">Yachts &amp; vehicles</h3>
         <p data-i18n="p2_t">Organisation and regular maintenance for your private yachts and your entire vehicle fleet.</p>
       </a>
 
-      <!-- Card 3: security1, security2, car2, yacht1 -->
       <a class="card glass reveal delay-3" href="#services" style="text-decoration:none">
         <div class="card-slideshow" data-slideshow>
-          <img src="security1.jpeg" alt="Security 1" class="active-slide">
-          <img src="security2.jpeg" alt="Security 2">
-          <img src="car2.jpeg" alt="Car 2">
-          <img src="yacht1.jpeg" alt="Yacht 1">
+          <img src="security1.jpeg" alt="Security 1" class="active-slide" onerror="this.onerror=null; this.src='security1.jpg';">
+          <img src="security2.jpeg" alt="Security 2" onerror="this.onerror=null; this.src='security2.jpg';">
+          <img src="car2.jpeg" alt="Car 2" onerror="this.onerror=null; this.src='car2.jpg';">
+          <img src="yacht1.jpeg" alt="Yacht 1" onerror="this.onerror=null; this.src='yacht1.jpg';">
         </div>
         <div class="ico"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></div>
         <h3 data-i18n="p3_h">Concierge</h3>
@@ -618,18 +615,19 @@ footer { border-top: 1px solid var(--line); background: #050507; }
     <section class="wrap section split reveal" style="padding-top:clamp(20px,3vw,40px)">
       <div>
         <div class="photo">
-          <!-- About Section Image Slideshow -->
+          <!-- About Section Image Slideshow with automatic fallbacks -->
           <div class="photo-slideshow" data-slideshow>
-            <img src="house3.jpeg" alt="House 3" class="active-slide">
-            <img src="cleaner4.jpeg" alt="Cleaner 4">
-            <img src="yacht7.jpeg" alt="Yacht 7">
-            <img src="house1.jpeg" alt="House 1">
-            <img src="cleaner2.jpeg" alt="Cleaner 2">
-            <img src="car9.jpeg" alt="Car 9">
-            <img src="yacht8.jpeg" alt="Yacht 8">
-            <img src="car2.jpeg" alt="Car 2">
+            <img src="house3.jpeg" alt="House 3" class="active-slide" onerror="this.onerror=null; this.src='house3.jpg';">
+            <img src="cleaner4.jpeg" alt="Cleaner 4" onerror="this.onerror=null; this.src='cleaner4.jpg';">
+            <img src="yacht7.jpeg" alt="Yacht 7" onerror="this.onerror=null; this.src='yacht7.jpg';">
+            <img src="house1.jpeg" alt="House 1" onerror="this.onerror=null; this.src='house1.jpg';">
+            <img src="cleaner2.jpeg" alt="Cleaner 2" onerror="this.onerror=null; this.src='cleaner2.jpg';">
+            <img src="car9.jpeg" alt="Car 9" onerror="this.onerror=null; this.src='car9.jpg';">
+            <img src="yacht8.jpeg" alt="Yacht 8" onerror="this.onerror=null; this.src='yacht8.jpg';">
+            <img src="car2.jpeg" alt="Car 2" onerror="this.onerror=null; this.src='car2.jpg';">
           </div>
         </div>
+        <p class="photo-note" data-i18n="photo_note">VIP Service Marbella</p>
       </div>
       <div class="text-col">
         <span class="tag" data-i18n="about_tag">Owner-led</span>
