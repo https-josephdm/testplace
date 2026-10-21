@@ -179,6 +179,31 @@ em { font-family: var(--serif); font-style: italic; font-weight: 600; letter-spa
   text-transform: uppercase;
 }
 
+/* Card image slideshow styles */
+.card-slideshow {
+  width: 100%;
+  height: 180px;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 12px;
+  background: #000;
+  border: 1px solid var(--line);
+}
+.card-slideshow img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.card-slideshow img.active-slide {
+  opacity: 1;
+}
+
 /* clients feedback styles */
 .feedback-section {
   padding-block: clamp(48px, 7vw, 96px);
@@ -250,22 +275,6 @@ em { font-family: var(--serif); font-style: italic; font-weight: 600; letter-spa
 .card ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 8px; }
 .card li { display: flex; gap: 12px; align-items: center; padding: 11px 14px; border-radius: 12px; background: rgba(255,255,255,0.035); font-size: 0.96rem; }
 .card li::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
-
-/* card slideshow */
-.slides {
-  position: relative; aspect-ratio: 16 / 10; border-radius: 16px; overflow: hidden;
-  background: rgba(255,255,255,0.03); border: 1px solid var(--line); margin-bottom: 8px;
-}
-.slides img {
-  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-  opacity: 0; transition: opacity 1s ease;
-}
-.slides img.on { opacity: 1; }
-.slides .miss {
-  position: absolute; left: 8px; right: 8px; bottom: 8px; z-index: 2; padding: 6px 10px; border-radius: 10px;
-  background: rgba(0,0,0,0.75); color: #ffb089; font-size: 0.72rem; line-height: 1.4; word-break: break-all;
-}
-@media (prefers-reduced-motion: reduce) { .slides img { transition: none; } }
 
 /* about */
 .split { display: grid; gap: 36px; align-items: start; }
@@ -453,14 +462,6 @@ footer { border-top: 1px solid var(--line); background: #050507; }
       </div>
     </section>
 
-    <!-- Image Placeholder in Home -->
-    <section class="wrap">
-      <div class="img-placeholder glass reveal">
-        <svg viewBox="0 0 24 24"><use href="#i-image"/></svg>
-        <span data-i18n="img_placeholder_text">Image Placeholder</span>
-      </div>
-    </section>
-
     <section class="wrap section intro reveal">
       <h2 data-i18n="intro_h">Welcome to VIP Service Marbella</h2>
       <div class="copy">
@@ -469,33 +470,45 @@ footer { border-top: 1px solid var(--line); background: #050507; }
       </div>
     </section>
 
+    <!-- 3 Cards with Image Sliders -->
     <section class="wrap cards3">
+      <!-- Card 1: house3, house1, house2, cleaner4 -->
       <a class="card glass reveal delay-1" href="#services" style="text-decoration:none">
-        <div class="slides">
-          <img class="on" src="house3.jpeg" alt="">
-          <img src="house1.jpeg" alt="">
-          <img src="house2.jpeg" alt="">
-          <img src="cleaner4.jpeg" alt="">
+        <div class="card-slideshow" data-slideshow>
+          <img src="house3.jpeg" alt="House 3" class="active-slide">
+          <img src="house1.jpeg" alt="House 1">
+          <img src="house2.jpeg" alt="House 2">
+          <img src="cleaner4.jpeg" alt="Cleaner 4">
         </div>
-        <div class="ico"><svg viewBox="0 0 24 24"><use href="#i-house"/></svg></div><h3 data-i18n="p1_h">Your property</h3><p data-i18n="p1_t">Technical care and complete management of your home, from pool and spa to heating and air conditioning.</p>
+        <div class="ico"><svg viewBox="0 0 24 24"><use href="#i-house"/></svg></div>
+        <h3 data-i18n="p1_h">Your property</h3>
+        <p data-i18n="p1_t">Technical care and complete management of your home, from pool and spa to heating and air conditioning.</p>
       </a>
+
+      <!-- Card 2: car8, yacht6, car5, yacht5 -->
       <a class="card glass reveal delay-2" href="#services" style="text-decoration:none">
-        <div class="slides">
-          <img class="on" src="car8.jpeg" alt="">
-          <img src="yacht6.jpeg" alt="">
-          <img src="car5.jpeg" alt="">
-          <img src="yacht5.jpeg" alt="">
+        <div class="card-slideshow" data-slideshow>
+          <img src="car8.jpeg" alt="Car 8" class="active-slide">
+          <img src="yacht6.jpeg" alt="Yacht 6">
+          <img src="car5.jpeg" alt="Car 5">
+          <img src="yacht5.jpeg" alt="Yacht 5">
         </div>
-        <div class="ico"><svg viewBox="0 0 24 24"><use href="#i-boat"/></svg></div><h3 data-i18n="p2_h">Yachts &amp; vehicles</h3><p data-i18n="p2_t">Organisation and regular maintenance for your private yachts and your entire vehicle fleet.</p>
+        <div class="ico"><svg viewBox="0 0 24 24"><use href="#i-boat"/></svg></div>
+        <h3 data-i18n="p2_h">Yachts &amp; vehicles</h3>
+        <p data-i18n="p2_t">Organisation and regular maintenance for your private yachts and your entire vehicle fleet.</p>
       </a>
+
+      <!-- Card 3: security1, security2, car2, yacht1 -->
       <a class="card glass reveal delay-3" href="#services" style="text-decoration:none">
-        <div class="slides">
-          <img class="on" src="security1.jpeg" alt="">
-          <img src="security2.jpeg" alt="">
-          <img src="car2.jpeg" alt="">
-          <img src="yacht1.jpeg" alt="">
+        <div class="card-slideshow" data-slideshow>
+          <img src="security1.jpeg" alt="Security 1" class="active-slide">
+          <img src="security2.jpeg" alt="Security 2">
+          <img src="car2.jpeg" alt="Car 2">
+          <img src="yacht1.jpeg" alt="Yacht 1">
         </div>
-        <div class="ico"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></div><h3 data-i18n="p3_h">Concierge</h3><p data-i18n="p3_t">Yacht charters, helicopter rentals, special transport and personal butler service, organised for you.</p>
+        <div class="ico"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></div>
+        <h3 data-i18n="p3_h">Concierge</h3>
+        <p data-i18n="p3_t">Yacht charters, helicopter rentals, special transport and personal butler service, organised for you.</p>
       </a>
     </section>
 
@@ -945,7 +958,7 @@ footer { border-top: 1px solid var(--line); background: #050507; }
       v1_h: 'Exklusivität', v1_t: 'Persönlicher Service, getragen von einem Netzwerk sorgfältig ausgewählter Dienstleister.',
       v2_h: 'Zuverlässigkeit', v2_t: 'Technisches Fachwissen und regelmäßige Wartung, damit alles einfach funktioniert.',
       v3_h: 'Diskretion', v3_t: 'Persönliche Betreuung mit Professionalität und voller Diskretion.',
-      c_h: 'Kontakt', c_lead: 'Sagen Sie uns, was Sie brauchen. Wir melden uns persönlich bei Ihnen.',
+      c_h: 'Kontakt', c_lead: 'Sagen Sie uns, what Sie brauchen. Wir melden uns persönlich bei Ihnen.',
       f_name: 'Name', f_email: 'E-Mail', f_phone: 'Telefon (optional)', f_topic: 'Ich interessiere mich für',
       o_prop: 'Immobilienverwaltung', o_tech: 'Technische Services', o_yacht: 'Yachten & Fahrzeuge', o_conc: 'Concierge', o_sec: 'Sicherheit', o_other: 'Etwas anderes',
       f_msg: 'Ihre Nachricht', f_consent: 'Ich bin einverstanden, dass meine Angaben zur Beantwortung meiner Anfrage verwendet werden.', f_send: 'Anfrage senden',
@@ -957,7 +970,7 @@ footer { border-top: 1px solid var(--line); background: #050507; }
       own_h: 'Inhaber', own_born: 'geboren als Von Brück',
       map_tag: 'Standort', map_h: 'So finden Sie uns in Marbella', map_open: 'In Google Maps öffnen', map_dir: 'Route planen',
       map_note: 'Schematische Karte. Die genaue Position und Route sehen Sie in Google Maps.',
-      cta_h: 'Ihr Leben. Ihr Eigentum. Unser Service.', cta_p: 'Sagen Sie uns, was Sie brauchen. Wir kümmern uns diskret und in Ihrer Sprache um die Details.', cta_b: 'Kontakt aufnehmen',
+      cta_h: 'Ihr Leben. Ihr Eigentum. Unser Service.', cta_p: 'Sagen Sie uns, what Sie brauchen. Wir kümmern uns diskret und in Ihrer Sprache um die Details.', cta_b: 'Kontakt aufnehmen',
       foot_p: 'Ihr zuverlässiger Partner für luxuriöse Immobilienbetreuung, Yacht- und Fahrzeugpflege, technische Services und exklusive Concierge-Lösungen an der Costa del Sol.',
       msg_topic: 'Interesse an', msg_phone: 'Telefon', msg_name: 'Name', msg_email: 'E-Mail'
     }
@@ -1082,53 +1095,21 @@ footer { border-top: 1px solid var(--line); background: #050507; }
     revealElements.forEach(function (el) {
       observer.observe(el);
     });
-  });
 
-  // Card slideshows
-  var SLIDE_MS = 3500;
-  var DEBUG_SLIDES = true;   // shows "Not found: file" inside a card when a picture can't load; set to false when everything works
-  var reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function initSlides() {
-    var boxes = document.querySelectorAll('.slides');
-    Array.prototype.forEach.call(boxes, function (box, idx) {
-      var imgs = Array.prototype.slice.call(box.querySelectorAll('img'));
-      var cur = 0;
-      var missEl = null;
-
-      function good() {
-        return imgs.filter(function (i) { return !i.hasAttribute('data-bad'); });
+    // Image Sliders Setup (switching every 4 seconds)
+    var slideshows = document.querySelectorAll('[data-slideshow]');
+    slideshows.forEach(function (container) {
+      var imgs = container.querySelectorAll('img');
+      if (imgs.length > 1) {
+        var currentIndex = 0;
+        setInterval(function () {
+          imgs[currentIndex].classList.remove('active-slide');
+          currentIndex = (currentIndex + 1) % imgs.length;
+          imgs[currentIndex].classList.add('active-slide');
+        }, 4000);
       }
-      function show() {
-        var g = good();
-        if (!g.length) return;
-        imgs.forEach(function (i) { i.classList.remove('on'); });
-        g[cur % g.length].classList.add('on');
-      }
-      function markBad(img) {
-        if (img.hasAttribute('data-bad')) return;
-        img.setAttribute('data-bad', '1');
-        console.warn('Slideshow image not found:', img.src);
-        if (DEBUG_SLIDES) {
-          if (!missEl) { missEl = document.createElement('div'); missEl.className = 'miss'; box.appendChild(missEl); }
-          missEl.textContent += (missEl.textContent ? '  |  ' : 'Not found: ') + img.getAttribute('src');
-        }
-        show();
-      }
-
-      imgs.forEach(function (img) {
-        img.addEventListener('error', function () { markBad(img); });
-        if (img.complete && img.naturalWidth === 0) markBad(img);   // already failed before the script ran
-      });
-
-      show();
-      if (reduceMotion) return;
-      setTimeout(function () {
-        setInterval(function () { cur++; show(); }, SLIDE_MS);
-      }, idx * 1100);   // staggers the three cards so they don't all change at once
     });
-  }
-  initSlides();
+  });
 
   showRoute(true);
   applyLang();
