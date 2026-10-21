@@ -251,6 +251,18 @@ em { font-family: var(--serif); font-style: italic; font-weight: 600; letter-spa
 .card li { display: flex; gap: 12px; align-items: center; padding: 11px 14px; border-radius: 12px; background: rgba(255,255,255,0.035); font-size: 0.96rem; }
 .card li::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
 
+/* card slideshow */
+.slides {
+  position: relative; aspect-ratio: 16 / 10; border-radius: 16px; overflow: hidden;
+  background: rgba(255,255,255,0.03); border: 1px solid var(--line); margin-bottom: 8px;
+}
+.slides img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transition: opacity 1s ease;
+}
+.slides img.on { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .slides img { transition: none; } }
+
 /* about */
 .split { display: grid; gap: 36px; align-items: start; }
 .photo { border: 1px solid var(--gold-lo); padding: 8px; border-radius: 28px; background: rgba(255,255,255,0.03); }
@@ -454,9 +466,18 @@ footer { border-top: 1px solid var(--line); background: #050507; }
     </section>
 
     <section class="wrap cards3">
-      <a class="card glass reveal delay-1" href="#services" style="text-decoration:none"><div class="ico"><svg viewBox="0 0 24 24"><use href="#i-house"/></svg></div><h3 data-i18n="p1_h">Your property</h3><p data-i18n="p1_t">Technical care and complete management of your home, from pool and spa to heating and air conditioning.</p></a>
-      <a class="card glass reveal delay-2" href="#services" style="text-decoration:none"><div class="ico"><svg viewBox="0 0 24 24"><use href="#i-boat"/></svg></div><h3 data-i18n="p2_h">Yachts &amp; vehicles</h3><p data-i18n="p2_t">Organisation and regular maintenance for your private yachts and your entire vehicle fleet.</p></a>
-      <a class="card glass reveal delay-3" href="#services" style="text-decoration:none"><div class="ico"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></div><h3 data-i18n="p3_h">Concierge</h3><p data-i18n="p3_t">Yacht charters, helicopter rentals, special transport and personal butler service, organised for you.</p></a>
+      <a class="card glass reveal delay-1" href="#services" style="text-decoration:none">
+        <div class="slides" data-slides="house3,house1,house2,cleaner4" aria-hidden="true"></div>
+        <div class="ico"><svg viewBox="0 0 24 24"><use href="#i-house"/></svg></div><h3 data-i18n="p1_h">Your property</h3><p data-i18n="p1_t">Technical care and complete management of your home, from pool and spa to heating and air conditioning.</p>
+      </a>
+      <a class="card glass reveal delay-2" href="#services" style="text-decoration:none">
+        <div class="slides" data-slides="car8,yacht6,car5,yacht5" aria-hidden="true"></div>
+        <div class="ico"><svg viewBox="0 0 24 24"><use href="#i-boat"/></svg></div><h3 data-i18n="p2_h">Yachts &amp; vehicles</h3><p data-i18n="p2_t">Organisation and regular maintenance for your private yachts and your entire vehicle fleet.</p>
+      </a>
+      <a class="card glass reveal delay-3" href="#services" style="text-decoration:none">
+        <div class="slides" data-slides="security1,security2,car2,yacht1" aria-hidden="true"></div>
+        <div class="ico"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></div><h3 data-i18n="p3_h">Concierge</h3><p data-i18n="p3_t">Yacht charters, helicopter rentals, special transport and personal butler service, organised for you.</p>
+      </a>
     </section>
 
     <!-- Clients Feedback Section -->
@@ -905,7 +926,7 @@ footer { border-top: 1px solid var(--line); background: #050507; }
       v1_h: 'Exklusivität', v1_t: 'Persönlicher Service, getragen von einem Netzwerk sorgfältig ausgewählter Dienstleister.',
       v2_h: 'Zuverlässigkeit', v2_t: 'Technisches Fachwissen und regelmäßige Wartung, damit alles einfach funktioniert.',
       v3_h: 'Diskretion', v3_t: 'Persönliche Betreuung mit Professionalität und voller Diskretion.',
-      c_h: 'Kontakt', c_lead: 'Sagen Sie uns, what Sie brauchen. Wir melden uns persönlich bei Ihnen.',
+      c_h: 'Kontakt', c_lead: 'Sagen Sie uns, was Sie brauchen. Wir melden uns persönlich bei Ihnen.',
       f_name: 'Name', f_email: 'E-Mail', f_phone: 'Telefon (optional)', f_topic: 'Ich interessiere mich für',
       o_prop: 'Immobilienverwaltung', o_tech: 'Technische Services', o_yacht: 'Yachten & Fahrzeuge', o_conc: 'Concierge', o_sec: 'Sicherheit', o_other: 'Etwas anderes',
       f_msg: 'Ihre Nachricht', f_consent: 'Ich bin einverstanden, dass meine Angaben zur Beantwortung meiner Anfrage verwendet werden.', f_send: 'Anfrage senden',
@@ -917,7 +938,7 @@ footer { border-top: 1px solid var(--line); background: #050507; }
       own_h: 'Inhaber', own_born: 'geboren als Von Brück',
       map_tag: 'Standort', map_h: 'So finden Sie uns in Marbella', map_open: 'In Google Maps öffnen', map_dir: 'Route planen',
       map_note: 'Schematische Karte. Die genaue Position und Route sehen Sie in Google Maps.',
-      cta_h: 'Ihr Leben. Ihr Eigentum. Unser Service.', cta_p: 'Sagen Sie uns, what Sie brauchen. Wir kümmern uns diskret und in Ihrer Sprache um die Details.', cta_b: 'Kontakt aufnehmen',
+      cta_h: 'Ihr Leben. Ihr Eigentum. Unser Service.', cta_p: 'Sagen Sie uns, was Sie brauchen. Wir kümmern uns diskret und in Ihrer Sprache um die Details.', cta_b: 'Kontakt aufnehmen',
       foot_p: 'Ihr zuverlässiger Partner für luxuriöse Immobilienbetreuung, Yacht- und Fahrzeugpflege, technische Services und exklusive Concierge-Lösungen an der Costa del Sol.',
       msg_topic: 'Interesse an', msg_phone: 'Telefon', msg_name: 'Name', msg_email: 'E-Mail'
     }
@@ -1043,6 +1064,40 @@ footer { border-top: 1px solid var(--line); background: #050507; }
       observer.observe(el);
     });
   });
+
+  // Card slideshows (images are .jpeg)
+  var IMG_BASE = '';        // set to e.g. 'images/' if your pictures are in a subfolder
+  var IMG_EXT = '.jpeg';
+  var SLIDE_MS = 3500;
+  var reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function initSlides() {
+    var boxes = document.querySelectorAll('.slides');
+    Array.prototype.forEach.call(boxes, function (box, idx) {
+      var names = box.getAttribute('data-slides').split(',');
+      names.forEach(function (name) {
+        var img = new Image();
+        img.alt = '';
+        img.decoding = 'async';
+        img.onerror = function () { img.remove(); };   // skip any picture that fails to load
+        img.src = IMG_BASE + name.trim() + IMG_EXT;
+        box.appendChild(img);
+      });
+      var cur = 0;
+      function show() {
+        var imgs = box.querySelectorAll('img');
+        if (!imgs.length) return;
+        for (var i = 0; i < imgs.length; i++) imgs[i].classList.remove('on');
+        imgs[cur % imgs.length].classList.add('on');
+      }
+      show();
+      if (reduceMotion) return;
+      setTimeout(function () {
+        setInterval(function () { cur++; show(); }, SLIDE_MS);
+      }, idx * 1100);   // staggers the three cards so they don't all change at once
+    });
+  }
+  initSlides();
 
   showRoute(true);
   applyLang();
