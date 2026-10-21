@@ -261,6 +261,10 @@ em { font-family: var(--serif); font-style: italic; font-weight: 600; letter-spa
   opacity: 0; transition: opacity 1s ease;
 }
 .slides img.on { opacity: 1; }
+.slides .miss {
+  position: absolute; left: 8px; right: 8px; bottom: 8px; z-index: 2; padding: 6px 10px; border-radius: 10px;
+  background: rgba(0,0,0,0.75); color: #ffb089; font-size: 0.72rem; line-height: 1.4; word-break: break-all;
+}
 @media (prefers-reduced-motion: reduce) { .slides img { transition: none; } }
 
 /* about */
@@ -467,15 +471,30 @@ footer { border-top: 1px solid var(--line); background: #050507; }
 
     <section class="wrap cards3">
       <a class="card glass reveal delay-1" href="#services" style="text-decoration:none">
-        <div class="slides" data-slides="house3,house1,house2,cleaner4" aria-hidden="true"></div>
+        <div class="slides">
+          <img class="on" src="house3.jpeg" alt="">
+          <img src="house1.jpeg" alt="">
+          <img src="house2.jpeg" alt="">
+          <img src="cleaner4.jpeg" alt="">
+        </div>
         <div class="ico"><svg viewBox="0 0 24 24"><use href="#i-house"/></svg></div><h3 data-i18n="p1_h">Your property</h3><p data-i18n="p1_t">Technical care and complete management of your home, from pool and spa to heating and air conditioning.</p>
       </a>
       <a class="card glass reveal delay-2" href="#services" style="text-decoration:none">
-        <div class="slides" data-slides="car8,yacht6,car5,yacht5" aria-hidden="true"></div>
+        <div class="slides">
+          <img class="on" src="car8.jpeg" alt="">
+          <img src="yacht6.jpeg" alt="">
+          <img src="car5.jpeg" alt="">
+          <img src="yacht5.jpeg" alt="">
+        </div>
         <div class="ico"><svg viewBox="0 0 24 24"><use href="#i-boat"/></svg></div><h3 data-i18n="p2_h">Yachts &amp; vehicles</h3><p data-i18n="p2_t">Organisation and regular maintenance for your private yachts and your entire vehicle fleet.</p>
       </a>
       <a class="card glass reveal delay-3" href="#services" style="text-decoration:none">
-        <div class="slides" data-slides="security1,security2,car2,yacht1" aria-hidden="true"></div>
+        <div class="slides">
+          <img class="on" src="security1.jpeg" alt="">
+          <img src="security2.jpeg" alt="">
+          <img src="car2.jpeg" alt="">
+          <img src="yacht1.jpeg" alt="">
+        </div>
         <div class="ico"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></div><h3 data-i18n="p3_h">Concierge</h3><p data-i18n="p3_t">Yacht charters, helicopter rentals, special transport and personal butler service, organised for you.</p>
       </a>
     </section>
@@ -1065,31 +1084,43 @@ footer { border-top: 1px solid var(--line); background: #050507; }
     });
   });
 
-  // Card slideshows (images are .jpeg)
-  var IMG_BASE = '';        // set to e.g. 'images/' if your pictures are in a subfolder
-  var IMG_EXT = '.jpeg';
+  // Card slideshows
   var SLIDE_MS = 3500;
+  var DEBUG_SLIDES = true;   // shows "Not found: file" inside a card when a picture can't load; set to false when everything works
   var reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function initSlides() {
     var boxes = document.querySelectorAll('.slides');
     Array.prototype.forEach.call(boxes, function (box, idx) {
-      var names = box.getAttribute('data-slides').split(',');
-      names.forEach(function (name) {
-        var img = new Image();
-        img.alt = '';
-        img.decoding = 'async';
-        img.onerror = function () { img.remove(); };   // skip any picture that fails to load
-        img.src = IMG_BASE + name.trim() + IMG_EXT;
-        box.appendChild(img);
-      });
+      var imgs = Array.prototype.slice.call(box.querySelectorAll('img'));
       var cur = 0;
-      function show() {
-        var imgs = box.querySelectorAll('img');
-        if (!imgs.length) return;
-        for (var i = 0; i < imgs.length; i++) imgs[i].classList.remove('on');
-        imgs[cur % imgs.length].classList.add('on');
+      var missEl = null;
+
+      function good() {
+        return imgs.filter(function (i) { return !i.hasAttribute('data-bad'); });
       }
+      function show() {
+        var g = good();
+        if (!g.length) return;
+        imgs.forEach(function (i) { i.classList.remove('on'); });
+        g[cur % g.length].classList.add('on');
+      }
+      function markBad(img) {
+        if (img.hasAttribute('data-bad')) return;
+        img.setAttribute('data-bad', '1');
+        console.warn('Slideshow image not found:', img.src);
+        if (DEBUG_SLIDES) {
+          if (!missEl) { missEl = document.createElement('div'); missEl.className = 'miss'; box.appendChild(missEl); }
+          missEl.textContent += (missEl.textContent ? '  |  ' : 'Not found: ') + img.getAttribute('src');
+        }
+        show();
+      }
+
+      imgs.forEach(function (img) {
+        img.addEventListener('error', function () { markBad(img); });
+        if (img.complete && img.naturalWidth === 0) markBad(img);   // already failed before the script ran
+      });
+
       show();
       if (reduceMotion) return;
       setTimeout(function () {
