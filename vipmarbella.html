@@ -152,31 +152,29 @@ em { font-family: var(--serif); font-style: italic; font-weight: 600; letter-spa
 .hero-card li svg { width: 18px; height: 18px; flex: none; }
 @media (min-width: 940px) { .hero { grid-template-columns: 1.35fr 1fr; gap: 64px; } }
 
-/* image placeholder styles */
-.img-placeholder {
+/* Main full-width slideshow styles */
+.hero-slideshow {
   width: 100%;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.03);
-  border: 1px dashed var(--gold-lo);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  color: var(--muted);
-  text-align: center;
-  padding: 32px 16px;
+  height: clamp(260px, 35vw, 450px);
+  border-radius: var(--r);
+  overflow: hidden;
+  position: relative;
+  background: #000;
+  border: 1px solid var(--gold-lo);
   margin-block: 20px;
 }
-.img-placeholder svg {
-  width: 40px;
-  height: 40px;
+.hero-slideshow img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
 }
-.img-placeholder span {
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+.hero-slideshow img.active-slide {
+  opacity: 1;
 }
 
 /* Card image slideshow styles */
@@ -459,6 +457,18 @@ footer { border-top: 1px solid var(--line); background: #050507; }
             <li><svg viewBox="0 0 16 16"><use href="#tick"/></svg><span data-i18n="hc4">Security on request</span></li>
           </ul>
         </aside>
+      </div>
+    </section>
+
+    <!-- Main Hero Image Slider -->
+    <section class="wrap">
+      <div class="hero-slideshow reveal" data-slideshow>
+        <img src="yacht9.jpeg" alt="Yacht 9" class="active-slide">
+        <img src="view1.jpeg" alt="View 1">
+        <img src="car6.jpeg" alt="Car 6">
+        <img src="cleaner1.jpeg" alt="Cleaner 1">
+        <img src="security2.jpeg" alt="Security 2">
+        <img src="car7.jpeg" alt="Car 7">
       </div>
     </section>
 
@@ -840,7 +850,6 @@ footer { border-top: 1px solid var(--line); background: #050507; }
       hero_lead: 'Luxury property management, yacht and vehicle care, technical services and exclusive concierge solutions on the Costa del Sol.',
       hero_cta1: 'Request a private consultation', hero_cta2: 'Explore services',
       hc1: 'Property management', hc2: 'Yachts & vehicles', hc3: 'Concierge on request', hc4: 'Security on request',
-      img_placeholder_text: 'Just a Place Holder',
       feedback_tag: 'Testimonials',
       feedback_h: 'Client Feedback',
       feedback_lead: 'What our valued clients say about our discretion, reliability, and dedicated service on the Costa del Sol.',
@@ -913,7 +922,6 @@ footer { border-top: 1px solid var(--line); background: #050507; }
       hero_lead: 'Luxuriöse Immobilienbetreuung, Yacht- und Fahrzeugpflege, technische Services und exklusive Concierge-Lösungen an der Costa del Sol.',
       hero_cta1: 'Persönliches Gespräch anfragen', hero_cta2: 'Leistungen entdecken',
       hc1: 'Immobilienverwaltung', hc2: 'Yachten & Fahrzeuge', hc3: 'Concierge auf Anfrage', hc4: 'Sicherheit auf Anfrage',
-      img_placeholder_text: 'Just a Place Holder',
       feedback_tag: 'Referenzen',
       feedback_h: 'Kundenfeedback',
       feedback_lead: 'Was unsere geschätzten Kunden über unsere Diskretion, Zuverlässigkeit und unseren engagierten Service an der Costa del Sol sagen.',
@@ -1096,7 +1104,7 @@ footer { border-top: 1px solid var(--line); background: #050507; }
       observer.observe(el);
     });
 
-    // Image Sliders Setup (switching every 4 seconds)
+    // Image Sliders Setup (switching images automatically)
     var slideshows = document.querySelectorAll('[data-slideshow]');
     slideshows.forEach(function (container) {
       var imgs = container.querySelectorAll('img');
