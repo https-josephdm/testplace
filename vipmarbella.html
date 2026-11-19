@@ -286,7 +286,8 @@ em { font-family: var(--serif); font-style: italic; font-weight: 600; letter-spa
 .intro .copy { display: grid; gap: 18px; color: var(--muted); max-width: 40em; }
 @media (min-width: 900px) { .intro { grid-template-columns: 1fr 1.3fr; gap: 72px; } }
 .cards3 { display: grid; gap: 16px; padding-bottom: clamp(48px, 7vw, 96px); }
-@media (min-width: 860px) { .cards3 { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 860px) { .cards3 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1080px) { .cards3 { grid-template-columns: repeat(4, 1fr); } }
 .card { padding: 28px; display: grid; gap: 12px; align-content: start; min-width: 0; transition: border-color 0.2s ease, transform 0.2s ease; }
 .card:hover { border-color: var(--gold-lo); transform: translateY(-2px); }
 .ico { width: 48px; height: 48px; border-radius: 14px; background: var(--gold-bg); border: 1px solid var(--gold-lo); display: grid; place-items: center; margin-bottom: 6px; }
@@ -321,7 +322,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 600; letter-spa
   .bento { grid-template-columns: repeat(6, 1fr); }
   .b-tech { grid-column: span 4; } .b-yacht { grid-column: span 2; }
   .b-conc { grid-column: span 3; } .b-sec { grid-column: span 3; }
-  .b-clear { grid-column: span 6; }
+  .b-clear { grid-column: span 3; } .b-crime { grid-column: span 3; }
 }
 .note-end { font-size: clamp(1.4rem, 1.8vw + 1rem, 2.1rem); max-width: 28em; line-height: 1.3; font-weight: 600; letter-spacing: -0.02em; padding-bottom: clamp(48px, 7vw, 96px); }
 .values-band { border-block: 1px solid var(--line); background: var(--ink-2); }
@@ -428,6 +429,7 @@ footer { border-top: 1px solid var(--line); background: #050507; }
     <symbol id="i-bell" viewBox="0 0 24 24"><path d="M4 18h16M6 18a6 6 0 0 1 12 0M12 8V6M10 6h4M3 21h18" fill="none" stroke="#d4af37" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></symbol>
     <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z" fill="none" stroke="#d4af37" stroke-width="1.6" stroke-linejoin="round"/></symbol>
     <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="14" r="4" fill="none" stroke="#d4af37" stroke-width="1.6"/><path d="M11 12l9-9M16 7l3 3M14 9l2 2" fill="none" stroke="#d4af37" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM18 16l.8 2.2L21 19l-2.2.8L18 22l-.8-2.2L15 19l2.2-.8z" fill="none" stroke="#d4af37" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></symbol>
     <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/><polyline points="21 15 16 10 5 21" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   </defs>
 </svg>
@@ -445,7 +447,7 @@ footer { border-top: 1px solid var(--line); background: #050507; }
       <a class="nav" href="#contact" data-route="contact" data-i18n="nav_contact">Contact</a>
     </nav>
     <div class="acts">
-      <a class="btn btn-gold wa-btn" href="https://wa.me/09857997798" target="_blank" rel="noopener" data-i18n="wa_top">WhatsApp us</a>
+      <a class="btn btn-gold wa-btn" href="https://wa.me/34621294481" target="_blank" rel="noopener" data-i18n="wa_top">WhatsApp us</a>
       <div class="lang" role="group" aria-label="Language">
         <button type="button" data-lang="en" aria-pressed="true">EN</button>
         <button type="button" data-lang="de" aria-pressed="false">DE</button>
@@ -478,6 +480,7 @@ footer { border-top: 1px solid var(--line); background: #050507; }
             <li><svg viewBox="0 0 16 16"><use href="#tick"/></svg><span data-i18n="hc2">Yachts &amp; vehicles</span></li>
             <li><svg viewBox="0 0 16 16"><use href="#tick"/></svg><span data-i18n="hc3">Concierge on request</span></li>
             <li><svg viewBox="0 0 16 16"><use href="#tick"/></svg><span data-i18n="hc4">Security on request</span></li>
+            <li><svg viewBox="0 0 16 16"><use href="#tick"/></svg><span data-i18n="hc5">Crime scene cleaning</span></li>
           </ul>
         </aside>
       </div>
@@ -492,6 +495,8 @@ footer { border-top: 1px solid var(--line); background: #050507; }
         <img src="cleaner1.jpeg" alt="Cleaner 1" onerror="this.onerror=null; this.src='cleaner1.jpg';">
         <img src="security2.jpeg" alt="Security 2" onerror="this.onerror=null; this.src='security2.jpg';">
         <img src="car7.jpeg" alt="Car 7" onerror="this.onerror=null; this.src='car7.jpg';">
+        <img src="cu1.jpeg" alt="Crime Scene Cleaning 1" onerror="this.onerror=null; this.src='cu1.jpg';">
+        <img src="cu5.jpeg" alt="Crime Scene Cleaning 5" onerror="this.onerror=null; this.src='cu5.jpg';">
       </div>
     </section>
 
@@ -503,7 +508,7 @@ footer { border-top: 1px solid var(--line); background: #050507; }
       </div>
     </section>
 
-    <!-- 3 Cards with Image Sliders -->
+    <!-- Cards with Image Sliders -->
     <section class="wrap cards3">
       <a class="card glass reveal delay-1" href="#services" style="text-decoration:none">
         <div class="card-slideshow" data-slideshow>
@@ -539,6 +544,18 @@ footer { border-top: 1px solid var(--line); background: #050507; }
         <div class="ico"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></div>
         <h3 data-i18n="p3_h">Concierge</h3>
         <p data-i18n="p3_t">Yacht charters, helicopter rentals, special transport and personal butler service, organised for you.</p>
+      </a>
+
+      <a class="card glass reveal delay-3" href="#services" style="text-decoration:none">
+        <div class="card-slideshow" data-slideshow>
+          <img src="cu2.jpeg" alt="Crime Scene Cleaning 2" class="active-slide" onerror="this.onerror=null; this.src='cu2.jpg';">
+          <img src="cu3.jpeg" alt="Crime Scene Cleaning 3" onerror="this.onerror=null; this.src='cu3.jpg';">
+          <img src="cu4.jpeg" alt="Crime Scene Cleaning 4" onerror="this.onerror=null; this.src='cu4.jpg';">
+          <img src="cu4.jpeg" alt="Crime Scene Cleaning 4" onerror="this.onerror=null; this.src='cu4.jpg';">
+        </div>
+        <div class="ico"><svg viewBox="0 0 24 24"><use href="#i-sparkle"/></svg></div>
+        <h3 data-i18n="p4_h">Crime scene cleaning</h3>
+        <p data-i18n="p4_t">Discreet, specialized biohazard remediation and thorough crime scene clean-up carried out with certified experts.</p>
       </a>
     </section>
 
@@ -625,6 +642,8 @@ footer { border-top: 1px solid var(--line); background: #050507; }
             <img src="car9.jpeg" alt="Car 9" onerror="this.onerror=null; this.src='car9.jpg';">
             <img src="yacht8.jpeg" alt="Yacht 8" onerror="this.onerror=null; this.src='yacht8.jpg';">
             <img src="car2.jpeg" alt="Car 2" onerror="this.onerror=null; this.src='car2.jpg';">
+            <img src="cu1.jpeg" alt="Crime Scene Cleaning 1" onerror="this.onerror=null; this.src='cu1.jpg';">
+            <img src="cu5.jpeg" alt="Crime Scene Cleaning 5" onerror="this.onerror=null; this.src='cu5.jpg';">
           </div>
         </div>
         <p class="photo-note" data-i18n="photo_note">VIP Service Marbella</p>
@@ -695,6 +714,11 @@ footer { border-top: 1px solid var(--line); background: #050507; }
           <h2 data-i18n="sec5_k">Property clearance</h2>
           <p data-i18n="sec5_t">Within the limits of the law, we assist in organising and carrying out the clearance of occupied properties, in cooperation with appropriately qualified professionals.</p>
         </article>
+        <article class="card glass b-crime reveal delay-3">
+          <div class="ico"><svg viewBox="0 0 24 24"><use href="#i-sparkle"/></svg></div>
+          <h2 data-i18n="sec6_k">Crime scene cleaning</h2>
+          <p data-i18n="sec6_t">In cooperation with certified specialists, we organize and carry out discreet, thorough crime scene clean-up, biohazard remediation, and deep sanitization in full compliance with legal and health standards.</p>
+        </article>
       </div>
       <p class="note-end reveal" data-i18n="sec_end">Whatever your needs may be, we do everything we can to fulfil your wishes and find individual solutions.</p>
     </div>
@@ -738,6 +762,7 @@ footer { border-top: 1px solid var(--line); background: #050507; }
                 <option value="o_yacht" data-i18n="o_yacht">Yachts &amp; vehicles</option>
                 <option value="o_conc" data-i18n="o_conc">Concierge</option>
                 <option value="o_sec" data-i18n="o_sec">Security</option>
+                <option value="o_crime" data-i18n="o_crime">Crime scene cleaning</option>
                 <option value="o_other" data-i18n="o_other">Something else</option>
               </select>
             </div>
@@ -757,7 +782,7 @@ footer { border-top: 1px solid var(--line); background: #050507; }
           <textarea id="result-text" readonly aria-label="Request text"></textarea>
           <div class="actions" style="margin-top:0">
             <button class="btn btn-dark" type="button" id="copy-btn" data-i18n="btn_copy">Copy text</button>
-            <a class="btn btn-gold" id="wa-send" href="https://wa.me/09857997798" target="_blank" rel="noopener" data-i18n="btn_wa_send">Send via WhatsApp</a>
+            <a class="btn btn-gold" id="wa-send" href="https://wa.me/34621294481" target="_blank" rel="noopener" data-i18n="btn_wa_send">Send via WhatsApp</a>
           </div>
         </div>
       </div>
@@ -767,7 +792,7 @@ footer { border-top: 1px solid var(--line); background: #050507; }
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.8-1.2A9.5 9.5 0 1 0 12 2.5z"/></svg></div>
           <h3>WhatsApp</h3>
           <p data-i18n="wa_p">Write to us directly.</p>
-          <div><a class="btn btn-gold" href="https://wa.me/09857997798" target="_blank" rel="noopener" data-i18n="wa_btn">Chat on WhatsApp</a></div>
+          <div><a class="btn btn-gold" href="https://wa.me/34621294481" target="_blank" rel="noopener" data-i18n="wa_btn">Chat on WhatsApp</a></div>
         </div>
         <div class="card glass">
           <h3 data-i18n="own_h">Owner</h3>
@@ -855,7 +880,7 @@ footer { border-top: 1px solid var(--line); background: #050507; }
   <p class="copy-line">© 2026 VIP Service Marbella</p>
 </footer>
 
-<a class="wa" href="https://wa.me/09857997798" target="_blank" rel="noopener" aria-label="WhatsApp">
+<a class="wa" href="https://wa.me/34621294481" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.8-1.2A9.5 9.5 0 1 0 12 2.5z"/>
     <path d="M8.6 8.2c-.4.5-.5 1.3-.1 2.2 1 2.3 3 4.2 5.4 5.1.8.3 1.5.1 1.9-.4l.5-.7-2-1-.8.7c-1-.4-2-1.4-2.4-2.4l.7-.8-1-2z" fill="currentColor" stroke="none"/>
@@ -881,7 +906,7 @@ footer { border-top: 1px solid var(--line); background: #050507; }
       hero_h1: '<span>Your Life.</span><span>Your Property.</span><span class="gold-text">Our Service.</span>',
       hero_lead: 'Luxury property management, yacht and vehicle care, technical services and exclusive concierge solutions on the Costa del Sol.',
       hero_cta1: 'Request a private consultation', hero_cta2: 'Explore services',
-      hc1: 'Property management', hc2: 'Yachts & vehicles', hc3: 'Concierge on request', hc4: 'Security on request',
+      hc1: 'Property management', hc2: 'Yachts & vehicles', hc3: 'Concierge on request', hc4: 'Security on request', hc5: 'Crime scene cleaning',
       feedback_tag: 'Testimonials',
       feedback_h: 'Client Feedback',
       feedback_lead: 'What our valued clients say about our discretion, reliability, and dedicated service on the Costa del Sol.',
@@ -900,6 +925,7 @@ footer { border-top: 1px solid var(--line); background: #050507; }
       p1_h: 'Your property', p1_t: 'Technical care and complete management of your home, from pool and spa to heating and air conditioning.',
       p2_h: 'Yachts & vehicles', p2_t: 'Organisation and regular maintenance for your private yachts and your entire vehicle fleet.',
       p3_h: 'Concierge', p3_t: 'Yacht charters, helicopter rentals, special transport and personal butler service, organised for you.',
+      p4_h: 'Crime scene cleaning', p4_t: 'Discreet, specialized biohazard remediation and thorough crime scene clean-up carried out with certified experts.',
       about_h1: 'About VIP Service Marbella',
       about_lead: 'A discreet partner for luxury property management, yacht and vehicle care, technical services and exclusive concierge on the Costa del Sol, in English and German.',
       about_cta1: 'Talk to us', about_cta2: 'Explore services',
@@ -920,6 +946,7 @@ footer { border-top: 1px solid var(--line); background: #050507; }
       sec3_l1: 'Yacht charters', sec3_l2: 'Helicopter rentals', sec3_l3: 'Special transportation arrangements', sec3_l4: 'Personal butler services on request',
       sec4_k: 'Security', sec4_t: 'Professional security services on request, tailored to your personal requirements and your property.',
       sec5_k: 'Property clearance', sec5_t: 'Within the limits of the law, we assist in organising and carrying out the clearance of occupied properties, in cooperation with appropriately qualified professionals.',
+      sec6_k: 'Crime scene cleaning', sec6_t: 'In cooperation with certified specialists, we organize and carry out discreet, thorough crime scene clean-up, biohazard remediation, and deep sanitization in full compliance with legal and health standards.',
       sec_end: 'Whatever your needs may be, we do everything we can to fulfil your wishes and find individual solutions.',
       val_h: 'You tell us what you need. We make it happen.',
       v1_h: 'Exclusivity', v1_t: 'A personal service backed by a network of carefully selected providers.',
@@ -927,7 +954,7 @@ footer { border-top: 1px solid var(--line); background: #050507; }
       v3_h: 'Discretion', v3_t: 'Personal assistance handled with professionalism and full discretion.',
       c_h: 'Contact', c_lead: 'Tell us what you need. We will get back to you personally.',
       f_name: 'Name', f_email: 'Email', f_phone: 'Phone (optional)', f_topic: 'I am interested in',
-      o_prop: 'Property management', o_tech: 'Technical services', o_yacht: 'Yachts & vehicles', o_conc: 'Concierge', o_sec: 'Security', o_other: 'Something else',
+      o_prop: 'Property management', o_tech: 'Technical services', o_yacht: 'Yachts & vehicles', o_conc: 'Concierge', o_sec: 'Security', o_crime: 'Crime scene cleaning', o_other: 'Something else',
       f_msg: 'Your message', f_consent: 'I agree that my details may be used to answer my request.', f_send: 'Send request',
       err: 'Please fill in your name, a valid email, your message and tick the consent box.',
       res_h: 'Your message is ready',
@@ -952,25 +979,26 @@ footer { border-top: 1px solid var(--line); background: #050507; }
       hero_h1: '<span>Ihr Leben.</span><span>Ihr Eigentum.</span><span class="gold-text">Unser Service.</span>',
       hero_lead: 'Luxuriöse Immobilienbetreuung, Yacht- und Fahrzeugpflege, technische Services und exklusive Concierge-Lösungen an der Costa del Sol.',
       hero_cta1: 'Persönliches Gespräch anfragen', hero_cta2: 'Leistungen entdecken',
-      hc1: 'Immobilienverwaltung', hc2: 'Yachten & Fahrzeuge', hc3: 'Concierge auf Anfrage', hc4: 'Sicherheit auf Anfrage',
+      hc1: 'Immobilienverwaltung', hc2: 'Yachten & Fahrzeuge', hc3: 'Concierge auf Anfrage', hc4: 'Sicherheit auf Anfrage', hc5: 'Tatortreinigung',
       feedback_tag: 'Referenzen',
       feedback_h: 'Kundenfeedback',
       feedback_lead: 'Was unsere geschätzten Kunden über unsere Diskretion, Zuverlässigkeit und unseren engagierten Service an der Costa del Sol sagen.',
       fb_1_text: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
-      fb_1_author: 'Lorem Ipsum',
-      fb_1_loc: 'Name',
+      fb_1_author: 'Name',
+      fb_1_loc: 'Lorem Ipsum',
       fb_2_text: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
       fb_2_author: 'Name',
-      fb_2_loc: 'Name',
+      fb_2_loc: 'Lorem Ipsum',
       fb_3_text: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
       fb_3_author: 'Name',
-      fb_3_loc: 'Name',
+      fb_3_loc: 'Lorem Ipsum',
       intro_h: 'Willkommen bei VIP Service Marbella',
       intro_p1: 'Ihr zuverlässiger Partner für luxuriöse Immobilienbetreuung, Yacht- und Fahrzeugpflege, technische Services und exklusive Concierge-Lösungen an der Costa del Sol.',
       intro_p2: 'Wir bieten persönliche Dienstleistungen, die Ihr Leben komfortabler, bequemer und sorgenfreier machen. Von der Verwaltung Ihrer Immobilie bis zur Organisation exklusiver Erlebnisse kümmern wir uns mit Professionalität, Zuverlässigkeit und Diskretion um jedes Detail.',
       p1_h: 'Ihre Immobilie', p1_t: 'Technische Betreuung und vollständige Verwaltung Ihres Hauses, von Pool und Spa bis zu Heizung und Klimaanlage.',
       p2_h: 'Yachten & Fahrzeuge', p2_t: 'Organisation und regelmäßige Wartung für Ihre privaten Yachten und Ihren gesamten Fuhrpark.',
       p3_h: 'Concierge', p3_t: 'Yachtcharter, Hubschraubermiete, besondere Transporte und persönlicher Butlerservice, für Sie organisiert.',
+      p4_h: 'Tatortreinigung', p4_t: 'Diskrete, spezialisierte Beseitigung biologischer Gefahrenstoffe und gründliche Tatortreinigung durch zertifizierte Fachkräfte.',
       about_h1: 'Über VIP Service Marbella',
       about_lead: 'Ein diskreter Partner für luxuriöse Immobilienbetreuung, Yacht- und Fahrzeugpflege, technische Services und exklusiven Concierge-Service an der Costa del Sol, auf Deutsch und Englisch.',
       about_cta1: 'Sprechen Sie mit uns', about_cta2: 'Leistungen entdecken',
@@ -991,6 +1019,7 @@ footer { border-top: 1px solid var(--line); background: #050507; }
       sec3_l1: 'Yachtcharter', sec3_l2: 'Hubschraubermiete', sec3_l3: 'Besondere Transportlösungen', sec3_l4: 'Persönlicher Butlerservice auf Anfrage',
       sec4_k: 'Sicherheit', sec4_t: 'Professionelle Sicherheitsdienste auf Anfrage, abgestimmt auf Ihre persönlichen Anforderungen und Ihre Immobilie.',
       sec5_k: 'Räumung besetzter Immobilien', sec5_t: 'Im Rahmen der gesetzlichen Möglichkeiten unterstützen wir bei der Organisation und Durchführung der Räumung besetzter Immobilien, in Zusammenarbeit mit entsprechend qualifizierten Fachleuten.',
+      sec6_k: 'Tatortreinigung', sec6_t: 'In Zusammenarbeit mit zertifizierten Spezialisten organisieren und übernehmen wir diskrete, gründliche Tatortreinigungen sowie Spezialdesinfektionen unter Einhaltung aller gesetzlichen und hygienischen Vorschriften.',
       sec_end: 'Was auch immer Sie benötigen: Wir tun alles, um Ihre Wünsche zu erfüllen und individuelle Lösungen zu finden.',
       val_h: 'Sie sagen uns, was Sie brauchen. Wir setzen es um.',
       v1_h: 'Exclusivität', v1_t: 'Persönlicher Service, getragen von einem Netzwerk sorgfältig ausgewählter Dienstleister.',
@@ -998,7 +1027,7 @@ footer { border-top: 1px solid var(--line); background: #050507; }
       v3_h: 'Diskretion', v3_t: 'Persönliche Betreuung mit Professionalität und voller Diskretion.',
       c_h: 'Kontakt', c_lead: 'Sagen Sie uns, what Sie brauchen. Wir melden uns persönlich bei Ihnen.',
       f_name: 'Name', f_email: 'E-Mail', f_phone: 'Telefon (optional)', f_topic: 'Ich interessiere mich für',
-      o_prop: 'Immobilienverwaltung', o_tech: 'Technische Services', o_yacht: 'Yachten & Fahrzeuge', o_conc: 'Concierge', o_sec: 'Sicherheit', o_other: 'Etwas anderes',
+      o_prop: 'Immobilienverwaltung', o_tech: 'Technische Services', o_yacht: 'Yachten & Fahrzeuge', o_conc: 'Concierge', o_sec: 'Sicherheit', o_crime: 'Tatortreinigung', o_other: 'Etwas anderes',
       f_msg: 'Ihre Nachricht', f_consent: 'Ich bin einverstanden, dass meine Angaben zur Beantwortung meiner Anfrage verwendet werden.', f_send: 'Anfrage senden',
       err: 'Bitte geben Sie Ihren Namen, eine gültige E-Mail-Adresse und Ihre Nachricht an und bestätigen Sie die Einwilligung.',
       res_h: 'Ihre Nachricht ist bereit',
@@ -1008,7 +1037,7 @@ footer { border-top: 1px solid var(--line); background: #050507; }
       own_h: 'Inhaber', own_born: 'geboren als Von Brück',
       map_tag: 'Standort', map_h: 'So finden Sie uns in Marbella', map_open: 'In Google Maps öffnen', map_dir: 'Route planen',
       map_note: 'Schematische Karte. Die genaue Position und Route sehen Sie in Google Maps.',
-      cta_h: 'Ihr Leben. Ihr Eigentum. Unser Service.', cta_p: 'Sagen Sie uns, what Sie brauchen. Wir kümmern uns diskret und in Ihrer Sprache um die Details.', cta_b: 'Kontakt aufnehmen',
+      cta_h: 'Ihr Leben. Ihr Eigentum. Unser Service.', cta_p: 'Sagen Sie uns, was Sie brauchen. Wir kümmern uns diskret und in Ihrer Sprache um die Details.', cta_b: 'Kontakt aufnehmen',
       foot_p: 'Ihr zuverlässiger Partner für luxuriöse Immobilienbetreuung, Yacht- und Fahrzeugpflege, technische Services und exklusive Concierge-Lösungen an der Costa del Sol.',
       msg_topic: 'Interesse an', msg_phone: 'Telefon', msg_name: 'Name', msg_email: 'E-Mail'
     }
@@ -1080,7 +1109,7 @@ footer { border-top: 1px solid var(--line); background: #050507; }
     lines.push(document.getElementById('f-msg').value.trim());
     var text = lines.join('\n');
     resText.value = text;
-    waSend.href = 'https://wa.me/09857997798?text=' + encodeURIComponent(text);
+    waSend.href = 'https://wa.me/34621294481?text=' + encodeURIComponent(text);
     copyBtn.textContent = t('btn_copy');
   }
 
